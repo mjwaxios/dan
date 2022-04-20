@@ -8,15 +8,15 @@ import (
 	"time"
 )
 
-type dan struct {
+type Dan struct {
 	name string
 }
 
-func (d dan) String() string {
+func (d Dan) String() string {
 	return "Name is: " + d.name
 }
 
-func Dosomething(a chan int) {
+func dosomething(a chan int) {
 	log.Printf("Starting Dosomething")
 
 	for i := range a {
@@ -55,13 +55,13 @@ func main2() {
 		log.Fatal("got error: ", err, a)
 	}
 
-	test := dan{name: "hello"}
+	test := Dan{name: "hello"}
 	fmt.Println(test)
 
 	somechan := make(chan int, 100)
 	defer close(somechan)
 
-	go Dosomething(somechan)
+	go dosomething(somechan)
 
 	time.Sleep(3 * time.Second)
 	go do(somechan)
