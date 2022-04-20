@@ -1,4 +1,4 @@
-package github.com/mjwaxios/dan
+package dan
 
 import (
 	"errors"
